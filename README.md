@@ -1,6 +1,8 @@
 # LeetCode Solutions 🧩
 
-This repository contains my personal solutions to problems from [LeetCode](https://leetcode.com/u/mhttarunno/), mainly written in C++.
+This repository contains my personal solutions to problems from Leetcode mainly written in C++.
+
+Leetcode Handle: [MAHFUJUL HAQUE](https://leetcode.com/u/mhttarunno/),
 
 ## 🎯 Purpose
 
