@@ -13,6 +13,6 @@ Leetcode Handle: [MAHFUJUL HAQUE](https://leetcode.com/u/mhttarunno/)
 ## 🚀 Languages
 
 - C++  
-- (Optional: Python, Java, etc.)
+- (Optional: Python, Java, JavaScript, Rust, Golang etc.)
 
 Feel free to explore and learn along! 💡
