@@ -1,11 +1,5 @@
 import math
 class Solution:
-    def maxx(self, v):
-        mx = v[0]
-        for i in range(1, len(v)):
-            mx = max(mx, v[i])
-        return mx
-
     def func(self, v, hourly):
         THours = 0
         for i in range(len(v)):
@@ -16,11 +10,11 @@ class Solution:
         if not piles:
             return 0
 
-        low, high = 1, self.maxx(piles)
+        low, high = 1, max(piles)
         ans = float('inf')
 
         while low <= high:
-            mid = low + (high - low) // 2
+            mid = low + ((high - low) >> 1)
             totalHours = self.func(piles, mid)
 
             if totalHours <= h:
