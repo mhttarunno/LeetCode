@@ -1,30 +1,30 @@
 class Solution {
 public:
-    int printF(vector<int>& v) {
-        int prev = 0, prev2 = 0;
-        for (int i = 1; i <= v.size(); ++i) {
-            int pick = v[i - 1];    
-            if (i > 1) {
-                pick += prev2;
-            }
-            int nonPick = 0 + prev;
-            int curr = max(pick, nonPick);
-            prev2 = prev;
-            prev = curr;
-        }
-        return prev;
+    vector<int> dp;
+    int printF(int idx, vector<int>& v) {
+        if (idx == 0)
+            return v[idx];
+        if (idx < 0)
+            return 0;
+        if (dp[idx] != -1)
+            return dp[idx];
+        int pick = v[idx] + printF(idx - 2, v);
+        int notPick = printF(idx - 1, v);
+        return dp[idx] = max(pick, notPick);
     }
     int rob(vector<int>& nums) {
-        vector<int> tmp1, tmp2;
-        if(nums.size() == 1) return nums[0];
-        for (int i = 0; i < nums.size(); ++i) {
-            if(i != 0) {
-                tmp1.push_back(nums[i]);
-            }
-            if(i != nums.size() - 1) {
-                tmp2.push_back(nums[i]);
-            }
-        }
-        return max(printF(tmp1), printF(tmp2));
+        if (nums.size() == 1)
+            return nums[0];
+
+        vector<int> tmp1(nums.begin() + 1, nums.end());
+        vector<int> tmp2(nums.begin(), nums.end() - 1);
+
+        dp.assign(tmp1.size() + 1, -1);
+        int op1 = printF(tmp1.size() - 1, tmp1);
+
+        dp.assign(tmp2.size() + 1, -1);
+        int op2 = printF(tmp2.size() - 1, tmp2);
+
+        return max(op1, op2);
     }
 };
